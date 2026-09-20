@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Khushi 💗</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="heart-bg">
+  <span>💗</span><span>💕</span><span>❤️</span><span>💖</span><span>💓</span><span>💞</span><span>💗</span>
+</div>
+
+<!-- SCREEN 1 -->
+<section class="screen active" id="screen1">
+  <div class="fade-in">
+    <h1 class="title">Hey , Miss Chudail💗</h1>
+    <p>tap on each Emojis</p>
+
+    <div class="wish-wrap">
+      <div class="wish-grid">
+        <div class="wish-cell" data-msg="Party!"><span class="wish-emoji">🎉</span><span class="wish-pop">Let's partyyy! 🥳</span></div>
+        <div class="wish-cell" data-msg="Love"><span class="wish-emoji">💖</span><span class="wish-pop">Loads of love for you 💗</span></div>
+        <div class="wish-cell" data-msg="Celebration"><span class="wish-emoji">🥳</span><span class="wish-pop">It's your day to shine! ✨</span></div>
+        <div class="wish-cell" data-msg="Sparkle"><span class="wish-emoji">✨</span><span class="wish-pop">Sparkling wishes for you</span></div>
+        <div class="wish-cell" data-msg="Hearts"><span class="wish-emoji">💕</span><span class="wish-pop">So much love, bachaa 💕</span></div>
+        <div class="wish-cell" data-msg="Balloon"><span class="wish-emoji">🎈</span><span class="wish-pop">Balloons for the birthday girl 🎈</span></div>
+        <div class="wish-cell" data-msg="Confetti"><span class="wish-emoji">🎊</span><span class="wish-pop">Confetti explosion! 🎊</span></div>
+        <div class="wish-cell" data-msg="Crown"><span class="wish-emoji">👑</span><span class="wish-pop">Queen of the day 👑</span></div>
+        <div class="wish-cell" data-msg="Hug"><span class="wish-emoji">🤗</span><span class="wish-pop">Virtual hug for you 🤗</span></div>
+      </div>
+
+      <div class="center-wish">
+        <div class="wish-emojis">🎂💗</div>
+        <p>May your year ahead be full of laughter, silly memes, late night calls, and every single thing that makes you, YOU. Happy Birthday, mera bachaa!</p>
+      </div>
+
+      <div class="center-wish">
+        <div class="wish-emojis">🐒👻😭😂❤️</div>
+        <p>Happy Birthday to my favourite Bandar, certified Chudail, and full-time headache</p>
+      </div>
+
+      <div class="center-wish">
+        <div class="wish-emojis">🎂👻😭💀❤️</div>
+        <p>Happy Birthday, Chudail! Now go enjoy your day before your age starts showing.</p>
+      </div>
+
+      <div class="center-wish">
+        <div class="wish-emojis">🎉🏆😂</div>
+        <p>And Congratulations! You've officially completed another year of being annoying, dramatic, and unnecessarily stupid. Honestly, the world deserves an award for tolerating you for this long.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <button class="btn next-fixed" onclick="goTo('screen2')">Next ➜</button>
+</section>
+
+<!-- SCREEN 2 -->
+<section class="screen" id="screen2">
+  <div class="fade-in meme-box">
+    <div class="meme-video-box">
+      <video controls>
+        <source src="./videos/Tu_mujhse_pyar_karti _hai _ya _nhi.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+    </div>
+
+    <p class="meme-text">Tu mere se pyaar karti hai ki nahi? 🥺</p>
+    <p class="meme-sub">* as a best friend</p>
+
+    <div class="choice-row">
+      <button class="btn" onclick="goTo('screen3')">Yes 💖</button>
+      <button class="btn" id="noBtn" onmouseover="runAway(this)" onclick="runAway(this)">No 😒</button>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 3 -->
+<section class="screen" id="screen3">
+  <div class="fade-in love-text">
+    <p>Awwww 🥰😍</p>
+    <p>I love you too 💗</p>
+
+    <div class="meme-video-box">
+      <video controls>
+        <source src="./videos/Thanks love you forever __ meme template__ Akshey kumar___1080p.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+    </div>
+
+    <p class="tiny-scribble">* as a best friend~ (chudail 🧙‍♀️)</p>
+    <p style="margin-bottom:10px;">chall abb next pe click kar 👉</p>
+
+    <div class="catch-wrap">
+      <button class="btn fixedpos" id="nextChaseBtn" onmouseover="chaseAway(this)" onclick="caughtIt()">Next ➜</button>
+    </div>
+
+    <div class="retry-box" id="retryBox">Arey! Phir se try kar 😜 — <b>fir se kar</b></div>
+  </div>
+</section>
+
+<!-- SCREEN 5 -->
+<section class="screen grow-screen" id="screen5">
+  <div class="fade-in">
+    <div class="title-box">
+      <h1 class="title">❤️ loveee....</h1>
+    </div>
+    <div class="collage-frame">
+      <div class="photo-collage">
+        <div class="placeholder-box"><img src="./images/IMG-20251010-WA0008.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251124-WA0028.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251124-WA0032.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251124-WA0033.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251124-WA0034.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251229-WA0053.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251229-WA0054.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251230-WA0015.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20251230-WA0023.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260207-WA0018.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260207-WA0022.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260207-WA0029.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260207-WA0032.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260207-WA0033.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0016.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0017.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0021.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0023.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0024.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0025.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0028.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0029.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0032.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0038.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0040.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0041.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0042.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0043.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0044.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0066.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260212-WA0068.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260213-WA0007.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260324-WA0040.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260324-WA0041.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/IMG-20260324-WA0042.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-1048461181.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-1306012138.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-1544529215.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-1634811529.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-1684165787.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-2052676729.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-751463154.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-757124827.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-898554178.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-904955165.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-910747811.jpg" alt="❤️"></div>
+        <div class="placeholder-box"><img src="./images/Snapchat-985873291.jpg" alt="❤️"></div>
+      </div>
+    </div>
+    <button class="btn" onclick="goTo('screen6')">Next ➜</button>
+  </div>
+</section>
+
+<!-- SCREEN 6: THE DATE ASK -->
+<section class="screen" id="screen6">
+  <div class="fade-in form-card">
+    <h1 class="title">Ek Sawaal Puchana tha... 🥹💌</h1>
+    <div class="meme-video-box">
+      <video controls>
+        <source src="./videos/Dilwale _ Ek Sawaal _ Kajol, Shah Rukh Khan, Kriti Sanon, Varun Dhawan_1080p.mp4" type="video/mp4">
+        Your browser doesn't support video.
+      </video>
+    </div>
+    <p class="subtitle">Chalo, ek date plan karte hain? Kab aur kahan?</p>
+
+    <div class="toggle-row">
+      <label class="toggle-option">
+        <input type="radio" name="dateMode" value="pick" checked onchange="toggleDateMode()">
+        Choose Date &amp; Place
+      </label>
+      <label class="toggle-option">
+        <input type="radio" name="dateMode" value="write" onchange="toggleDateMode()">
+        Write a Message Instead
+      </label>
+    </div>
+
+    <div id="pickModeFields" class="form-fields">
+      <div class="form-group">
+        <label class="form-label">Pick a date 📅</label>
+        <input type="date" id="dateInput" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Pick a place 📍</label>
+        <input type="text" id="placeInput" class="form-input" placeholder="Cafe, park, movies...">
+      </div>
+    </div>
+
+    <div id="writeModeFields" class="form-fields" style="display:none;">
+      <div class="form-group">
+        <label class="form-label">Your message 💬</label>
+        <textarea id="dateMsgInput" class="form-input form-textarea" placeholder="Tell me whenever you're free..."></textarea>
+      </div>
+    </div>
+
+    <button class="btn" onclick="submitDate()">Next ➜</button>
+    <p class="tiny-scribble" id="dateThanks" style="display:none;">Yay, can't wait! 🥰</p>
+  </div>
+</section>
+
+<!-- SCREEN 7: FAVOURITE THINGS -->
+<section class="screen" id="screen7">
+  <div class="fade-in form-card">
+    <h1 class="title">Tumhari Pasand 💗</h1>
+    <p class="subtitle">Batao na, tumhe kya kya pasand hai?</p>
+
+    <div class="fav-grid">
+      <div>
+        <label class="form-label">🎵 Favourite Song</label>
+        <input type="text" class="form-input" id="favSong" placeholder="Song name">
+      </div>
+      <div>
+        <label class="form-label">🎨 Favourite Colour</label>
+        <input type="text" class="form-input" id="favColour" placeholder="Colour">
+      </div>
+      <div>
+        <label class="form-label">🍔 Favourite Food</label>
+        <input type="text" class="form-input" id="favFood" placeholder="Food">
+      </div>
+      <div>
+        <label class="form-label">🍓 Favourite Fruit</label>
+        <input type="text" class="form-input" id="favFruit" placeholder="Fruit">
+      </div>
+      <div>
+        <label class="form-label">🎬 Favourite Movie</label>
+        <input type="text" class="form-input" id="favMovie" placeholder="Movie">
+      </div>
+      <div>
+        <label class="form-label">✨ Anything Else</label>
+        <input type="text" class="form-input" id="favOther" placeholder="Anything else...">
+      </div>
+    </div>
+
+    <button class="btn" onclick="submitFavs()">Next ➜</button>
+    <p class="tiny-scribble" id="favThanks" style="display:none;">Noted, mera bachaa! 📝💗</p>
+  </div>
+</section>
+
+<!-- SCREEN 8: EXIT -->
+<section class="screen" id="screen8">
+  <div class="fade-in">
+    <h2>Once Again Happy Birthday, Khushi! 💗</h2>
+    <button class="btn" onclick="exitPrank()">Exit</button>
+  </div>
+</section>
+
+
+
+
+<script>
+function goTo(id){
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+
+  // Screen 2: "No" button runs away from cursor
+  function runAway(btn){
+    const maxX = window.innerWidth - 140;
+    const maxY = window.innerHeight - 80;
+    const x = Math.random() * maxX - maxX/2;
+    const y = Math.random() * 60 - 30;
+    btn.style.position = 'relative';
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+  }
+
+  // Screen 3: chase button logic
+  // function chaseAway(btn){
+  //   const wrap = btn.parentElement;
+  //   const wrapRect = wrap.getBoundingClientRect();
+  //   const maxX = wrapRect.width - btn.offsetWidth;
+  //   const maxY = wrapRect.height - btn.offsetHeight;
+  //   const x = Math.random() * maxX;
+  //   const y = Math.random() * maxY;
+  //   btn.style.left = x + 'px';
+  //   btn.style.top = y + 'px';
+  //   document.getElementById('retryBox').style.display = 'block';
+  // }
+
+  function caughtIt(){
+    goTo('screen5');
+  }
+
+  // ============================================
+  // 👉 PUT YOUR WHATSAPP NUMBER HERE (with country code, no + or spaces)
+  // Example: "919876543210"
+  const MY_WHATSAPP_NUMBER = "ADD_YOUR_NUMBER_HERE";
+  // ============================================
+
+  let dateAnswer = {};
+  let favAnswers = {};
+
+  // Screen 6: toggle between date/place picker and free-text message
+  function toggleDateMode(){
+    const mode = document.querySelector('input[name="dateMode"]:checked').value;
+    document.getElementById('pickModeFields').style.display = (mode === 'pick') ? 'flex' : 'none';
+    document.getElementById('writeModeFields').style.display = (mode === 'write') ? 'flex' : 'none';
+  }
+
+  function submitDate(){
+    const mode = document.querySelector('input[name="dateMode"]:checked').value;
+    dateAnswer = {};
+    if(mode === 'pick'){
+      const dateVal = document.getElementById('dateInput').value;
+      const placeVal = document.getElementById('placeInput').value.trim();
+      if(!dateVal || !placeVal){
+        alert("Please fill both date and place, mera bachaa! 🥺");
+        return;
+      }
+      dateAnswer.date = dateVal;
+      dateAnswer.place = placeVal;
+    } else {
+      const msgVal = document.getElementById('dateMsgInput').value.trim();
+      if(!msgVal){
+        alert("Please write a message! 🥺");
+        return;
+      }
+      dateAnswer.message = msgVal;
+    }
+    document.getElementById('dateThanks').style.display = 'block';
+    setTimeout(() => goTo('screen7'), 900);
+  }
+
+  // Screen 7: favourite things
+  function submitFavs(){
+    const song = document.getElementById('favSong').value.trim();
+    const colour = document.getElementById('favColour').value.trim();
+    const food = document.getElementById('favFood').value.trim();
+    const fruit = document.getElementById('favFruit').value.trim();
+    const movie = document.getElementById('favMovie').value.trim();
+    const other = document.getElementById('favOther').value.trim();
+
+    if(!song || !colour || !food || !fruit || !movie || !other){
+      alert("Please fill in all your favourites before moving on! 💗");
+      return;
+    }
+
+    favAnswers = { song, colour, food, fruit, movie, other };
+    document.getElementById('favThanks').style.display = 'block';
+    setTimeout(() => goTo('screen8'), 900);
+  }
+
+  // Build the WhatsApp message from both screens' answers
+  function buildWhatsAppMessage(){
+    let msg = "Hey! Khushi filled out her birthday page 💗\n\n";
+
+    msg += "📅 Date Plan:\n";
+    if(dateAnswer.message){
+      msg += `Message: ${dateAnswer.message}\n`;
+    } else {
+      msg += `Date: ${dateAnswer.date || "-"}\n`;
+      msg += `Place: ${dateAnswer.place || "-"}\n`;
+    }
+
+    msg += "\n💗 Favourites:\n";
+    msg += `Song: ${favAnswers.song || "-"}\n`;
+    msg += `Colour: ${favAnswers.colour || "-"}\n`;
+    msg += `Food: ${favAnswers.food || "-"}\n`;
+    msg += `Fruit: ${favAnswers.fruit || "-"}\n`;
+    msg += `Movie: ${favAnswers.movie || "-"}\n`;
+    msg += `Other: ${favAnswers.other || "-"}\n`;
+
+    return msg;
+  }
+
+  // Screen 8: send everything to WhatsApp
+  function sendToWhatsApp(){
+    const text = encodeURIComponent(buildWhatsAppMessage());
+    window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${text}`, '_blank');
+  }
+
+  function exitPrank(){
+    // auto-send her answers to WhatsApp first (new tab)
+    const text = encodeURIComponent(buildWhatsAppMessage());
+    window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${text}`, '_blank');
+
+    // then the fun redirect, same tab, after a short delay
+    setTimeout(() => {
+      window.location.href = 'https://www.google.com/search?q=chudail';
+    }, 1200);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+:root{
+    --blush-50:#fff5f8;
+    --blush-100:#ffe9f0;
+    --blush-200:#ffd3e2;
+    --rose-300:#f7a8c4;
+    --rose-400:#ee83a8;
+    --rose-500:#e2618c;
+    --rose-600:#c94873;
+    --rose-700:#a8355c;
+    --ink:#5c2438;
+    --ink-soft:#8a4a63;
+    --paper:#fffbfd;
+    --shadow-soft: 0 10px 28px rgba(196, 80, 130, 0.14);
+    --shadow-tiny: 0 4px 12px rgba(196, 80, 130, 0.12);
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(175deg, var(--blush-50) 0%, var(--blush-100) 45%, var(--rose-300) 100%);
+    color:var(--ink);
+    overflow:hidden;
+    height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- floating hearts background ---------- */
+  .heart-bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+  }
+  .heart-bg span{
+    position:absolute;
+    bottom:-10%;
+    font-size:1.4rem;
+    color:rgba(255,255,255,0.55);
+    filter:drop-shadow(0 2px 3px rgba(196,80,130,0.15));
+    animation:floatUp 11s ease-in infinite;
+  }
+  .heart-bg span:nth-child(1){ left:5%; animation-delay:0s; font-size:1.1rem;}
+  .heart-bg span:nth-child(2){ left:18%; animation-delay:2.2s; font-size:1.7rem;}
+  .heart-bg span:nth-child(3){ left:32%; animation-delay:4.5s; font-size:.9rem;}
+  .heart-bg span:nth-child(4){ left:48%; animation-delay:1.2s; font-size:1.5rem;}
+  .heart-bg span:nth-child(5){ left:63%; animation-delay:3.4s; font-size:1.1rem;}
+  .heart-bg span:nth-child(6){ left:77%; animation-delay:5.6s; font-size:1.9rem;}
+  .heart-bg span:nth-child(7){ left:88%; animation-delay:2.9s; font-size:1.2rem;}
+
+  @keyframes floatUp{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    12%{ opacity:.9; }
+    100%{ transform:translateY(-112vh) rotate(200deg); opacity:0; }
+  }
+
+  /* ---------- screens ---------- */
+  .screen{
+    position:relative;
+    z-index:1;
+    height:100vh;
+    width:100%;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:clamp(20px,4vh,44px) clamp(16px,5vw,24px);
+    overflow-y:auto;
+    scrollbar-gutter:stable both-edges;
+    box-sizing:border-box;
+  }
+  .screen.active{ display:flex; }
+
+  /* Screens with a variable amount of content (photo/video grids) anchor to
+     the top so the heading is always visible first and everything simply
+     grows downward as more items are added — on any screen size. */
+  .grow-screen{
+    justify-content:flex-start;
+  }
+
+  .fade-in{
+    animation:fadeIn .9s ease forwards;
+    width:100%;
+    max-width:100%;
+  }
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  h1.title{
+    font-family:'Quicksand', 'Poppins', sans-serif;
+    font-size:clamp(1.5rem, 5vw, 2.3rem);
+    font-weight:700;
+    color:var(--rose-700);
+    letter-spacing:.3px;
+    margin-bottom:8px;
+  }
+
+  .subtitle{
+    font-size:clamp(.9rem, 2.4vw, 1.05rem);
+    color:var(--ink-soft);
+    margin-bottom:28px;
+    font-weight:500;
+  }
+
+  /* ---------- Screen 1: wish grid ---------- */
+  #screen1{
+    gap:20px;
+  }
+  .wish-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:clamp(16px,4vw,30px);
+    max-width:1100px;
+    width:100%;
+  }
+  .wish-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(64px, 1fr));
+    gap:clamp(9px,2vw,13px);
+    width:100%;
+    max-width:460px;
+  }
+  .wish-cell{
+    position:relative;
+    background:var(--paper);
+    border:1px solid var(--blush-200);
+    border-radius:16px;
+    padding:6px;
+    font-size:clamp(1.1rem, 3.4vw, 1.5rem);
+    box-shadow:var(--shadow-tiny);
+    transition:transform .25s ease, box-shadow .25s ease;
+    overflow:visible;
+    min-height:clamp(60px, 12vw, 78px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .wish-cell:hover{
+    transform:translateY(-3px) scale(1.06);
+    box-shadow:var(--shadow-soft);
+    z-index:5;
+  }
+  .wish-emoji{
+    display:inline-block;
+    transition:transform .35s ease, opacity .35s ease;
+  }
+  .wish-cell:hover .wish-emoji{
+    transform:translateY(-56px) scale(2.1) rotate(12deg);
+    opacity:0;
+  }
+  .wish-pop{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:6px;
+    font-size:clamp(.62rem, 1.8vw, .78rem);
+    line-height:1.25;
+    font-weight:600;
+    color:var(--rose-600);
+    opacity:0;
+    transform:scale(0.6);
+    transition:opacity .3s ease .1s, transform .3s ease .1s;
+    text-align:center;
+  }
+  .wish-cell:hover .wish-pop{
+    opacity:1;
+    transform:scale(1);
+  }
+
+  .center-wish{
+    position:relative;
+    width:100%;
+    max-width:340px;
+    background:var(--paper);
+    border-radius:20px;
+    padding:clamp(20px,4vw,28px) clamp(18px,4vw,24px);
+    box-shadow:var(--shadow-soft);
+    border:1px solid var(--blush-200);
+  }
+  .center-wish h3{
+    font-family:'Quicksand', sans-serif;
+    color:var(--rose-700);
+    font-weight:700;
+    margin-bottom:12px;
+    font-size:clamp(1rem, 3vw, 1.2rem);
+  }
+  .wish-emojis{
+    font-size:clamp(1.4rem, 4vw, 1.9rem);
+    line-height:1.2;
+    margin-bottom:12px;
+    letter-spacing:2px;
+  }
+  .center-wish p{
+    color:var(--ink-soft);
+    font-weight:400;
+    font-size:clamp(.85rem, 2.6vw, 1rem);
+    line-height:1.6;
+  }
+  .bubble{
+    margin-top:16px;
+    display:inline-block;
+    background:var(--rose-500);
+    color:#fff;
+    padding:9px 20px;
+    border-radius:30px;
+    font-size:.88rem;
+    font-weight:500;
+    box-shadow:0 4px 10px rgba(196,80,130,.3);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.05); }
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    font-family:'Poppins', sans-serif;
+    background:var(--rose-500);
+    color:#fff;
+    border:none;
+    padding:clamp(11px,2.6vw,14px) clamp(24px,5vw,36px);
+    font-size:clamp(.9rem, 2.6vw, 1.02rem);
+    font-weight:500;
+    border-radius:40px;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(196,80,130,.32);
+    transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+    margin-top:10px;
+  }
+  .btn:hover{
+    background:var(--rose-600);
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(196,80,130,.38);
+  }
+
+  .next-fixed{
+    position:absolute;
+    bottom:clamp(16px,4vw,30px);
+    right:clamp(16px,5vw,40px);
+  }
+
+  /* ---------- Screen 2: meme game ---------- */
+  .meme-box{
+    max-width:520px;
+    width:100%;
+  }
+  .meme-video-box{
+    width:100%;
+    max-width:420px;
+    margin:0 auto 22px;
+    background:var(--paper);
+    border:1px solid var(--blush-200);
+    border-radius:20px;
+    padding:10px;
+    box-shadow:var(--shadow-tiny);
+  }
+  .meme-video-box video{
+    width:100%;
+    border-radius:14px;
+    display:block;
+  }
+  .meme-text{
+    font-family:'Quicksand', sans-serif;
+    font-size:clamp(1.2rem, 4.5vw, 1.75rem);
+    color:var(--rose-700);
+    margin-bottom:8px;
+    font-weight:700;
+  }
+  .meme-sub{
+    color:var(--ink-soft);
+    font-size:.88rem;
+    margin-bottom:30px;
+  }
+  .choice-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:clamp(20px,6vw,40px);
+    justify-content:center;
+    position:relative;
+    min-height:80px;
+  }
+  #noBtn{
+    position:relative;
+    transition:left .15s ease, top .15s ease;
+  }
+
+  /* ---------- Screen 3 ---------- */
+  .love-text{ width:100%; max-width:600px; }
+  .love-text h2{
+    font-family:'Quicksand', sans-serif;
+    font-size:clamp(1.5rem, 5vw, 2rem);
+    font-weight:700;
+    color:var(--rose-700);
+    margin-bottom:6px;
+  }
+  .love-text p{
+    font-size:clamp(1rem, 3vw, 1.15rem);
+    margin-bottom:6px;
+    color:var(--ink);
+  }
+  .tiny-scribble{
+    font-size:.75rem;
+    color:var(--rose-400);
+    margin:12px 0 22px;
+    font-style:italic;
+  }
+  #nextChaseBtn{
+    position:relative;
+  }
+  .catch-wrap{
+    position:relative;
+    width:100%;
+    max-width:600px;
+    height:160px;
+    margin-top:10px;
+  }
+  #nextChaseBtn.fixedpos{
+    position:absolute;
+  }
+  .retry-box{
+    margin-top:16px;
+    font-size:.88rem;
+    color:var(--rose-500);
+    display:none;
+  }
+
+  /* ---------- Screens 4 & 5: collage frame ---------- */
+  .title-box{
+    width:100%;
+    max-width:min(96vw, 1400px);
+    border:1px solid var(--blush-200);
+    border-radius:16px;
+    background:var(--paper);
+    padding:clamp(12px,3vw,18px) clamp(16px,4vw,22px);
+    margin-bottom:16px;
+    box-shadow:var(--shadow-tiny);
+  }
+  .title-box .title,
+  .title-box .subtitle{
+    margin-bottom:0;
+  }
+  .title-box .subtitle{
+    margin-top:6px;
+  }
+
+  .collage-frame{
+    width:100%;
+    max-width:min(96vw, 1400px);
+    background:var(--blush-100);
+    border:1px solid var(--blush-200);
+    border-radius:18px;
+    padding:0;
+    margin-bottom:20px;
+    box-shadow:var(--shadow-soft);
+    overflow:hidden;
+  }
+
+  .placeholder-box{
+    background:rgba(255,255,255,0.85);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+    font-size:clamp(.65rem, 1.8vw, .88rem);
+    padding:10px;
+    text-align:center;
+  }
+
+  /* ---------- Screen 5: photo collage ---------- */
+  .photo-collage{
+    display:flex;
+    flex-wrap:wrap;
+    gap:2px;
+    background:var(--blush-200);
+    width:100%;
+  }
+  .photo-collage img,
+  .photo-collage .placeholder-box{
+    flex:1 1 100px;
+    width:100%;
+    height:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:0;
+    border:none;
+    box-shadow:none;
+    transform:none !important;
+  }
+
+  .top-right-btn{
+    position:absolute;
+    top:clamp(16px,4vw,30px);
+    right:clamp(16px,5vw,40px);
+  }
+
+  /* ---------- Screens 6 & 7: forms ---------- */
+  .form-card{
+    max-width:480px;
+    width:min(92vw, 480px);
+    background:var(--paper);
+    border:1px solid var(--blush-200);
+    border-radius:22px;
+    padding:clamp(22px,5vw,34px) clamp(18px,4vw,28px);
+    box-shadow:var(--shadow-soft);
+  }
+
+  .toggle-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    margin-bottom:24px;
+    font-size:.88rem;
+    color:var(--rose-700);
+  }
+  .toggle-option{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:var(--blush-50);
+    padding:8px 15px;
+    border-radius:20px;
+    border:1px solid var(--blush-200);
+    cursor:pointer;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .toggle-option:hover{
+    background:var(--blush-100);
+    border-color:var(--rose-400);
+  }
+  .toggle-option input{ accent-color:var(--rose-500); }
+
+  .form-fields{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    text-align:left;
+    margin-bottom:18px;
+  }
+
+  .form-group{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+
+  .form-label{
+    font-size:.85rem;
+    color:var(--rose-700);
+    font-weight:600;
+  }
+
+  .form-input{
+    padding:11px 15px;
+    border-radius:14px;
+    border:1px solid var(--blush-200);
+    background:var(--blush-50);
+    font-size:.94rem;
+    color:var(--ink);
+    outline:none;
+    font-family:inherit;
+    transition:border-color .2s ease, background .2s ease;
+    width:100%;
+  }
+  .form-input:focus{
+    border-color:var(--rose-400);
+    background:#fff;
+  }
+
+  .form-textarea{
+    min-height:90px;
+    resize:vertical;
+  }
+
+  .fav-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+    gap:14px;
+    text-align:left;
+    margin-bottom:20px;
+  }
+  .fav-grid .form-group{ margin-top:0; }
+
+  /* ---------- Screen 8 ---------- */
+  #screen8 h1{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.8rem, 6vw, 2.5rem);
+    color:var(--rose-700);
+    margin-bottom:6px;
+  }
+  #screen8 h2{ font-size:clamp(1.2rem, 4vw, 1.55rem); color:var(--ink-soft); margin-bottom:30px; font-weight:500; }
+
+  /* ---------- Responsive breakpoints ---------- */
+  @media (max-width:640px){
+    .wish-grid{ grid-template-columns:repeat(auto-fit, minmax(56px,1fr)); max-width:340px; }
+    .photo-collage img,
+    .photo-collage .placeholder-box{ flex-basis:70px; }
+    .fav-grid{ grid-template-columns:1fr; }
+    .next-fixed{ right:16px; bottom:16px; }
+    .top-right-btn{ right:16px; top:16px; }
+    .choice-row{ gap:18px; }
+  }
+
+  @media (max-width:380px){
+    .wish-grid{ grid-template-columns:repeat(auto-fit, minmax(50px,1fr)); gap:8px; }
+    .wish-cell{ min-height:60px; }
+    .form-card{ padding:18px 14px; }
+  }
+
+  /* ---------- Phone-specific tuning ---------- */
+  @media (max-width:480px){
+    .screen{ padding:14px 12px; }
+    .wish-wrap{
+      flex-direction:column;
+      gap:18px;
+    }
+    .center-wish{
+      max-width:100%;
+    }
+    .next-fixed{
+      position:static;
+      margin-top:16px;
+    }
+    .top-right-btn{
+      position:static;
+      margin-top:14px;
+      align-self:center;
+    }
+    .title-box{
+      padding:10px 12px;
+    }
+    h1.title{ font-size:1.4rem; }
+    .subtitle{ font-size:.85rem; margin-bottom:16px; }
+    .meme-video-box{ max-width:100%; }
+    .catch-wrap{ height:120px; }
+    .photo-collage img,
+    .photo-collage .placeholder-box{ flex-basis:60px; }
+    .form-card{ width:94vw; }
+    .toggle-row{ font-size:.8rem; gap:10px; }
+    .toggle-option{ padding:6px 10px; }
+  }
+
+  @media (max-width:340px){
+    .wish-cell{ font-size:1rem; min-height:52px; }
+    .btn{ padding:10px 20px; font-size:.85rem; }
+  }
+
+  @media (min-width:1000px){
+    .wish-grid{ max-width:640px; }
+    .photo-collage img,
+    .photo-collage .placeholder-box{ flex-basis:120px; }
+  }

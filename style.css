@@ -26,6 +26,7 @@
     color:var(--ink);
     overflow:hidden;
     height:100vh;
+    height:100dvh;
     -webkit-font-smoothing:antialiased;
   }
 
@@ -64,11 +65,15 @@
     position:relative;
     z-index:1;
     height:100vh;
+    height:100dvh;
     width:100%;
     display:none;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
+    /* top-aligned, then the content block centres itself with auto margins.
+       When content is taller than the screen the auto margins collapse to 0,
+       so nothing gets clipped and the bottom stays reachable. */
+    justify-content:flex-start;
     text-align:center;
     padding:clamp(20px,4vh,44px) clamp(16px,5vw,24px);
     overflow-y:auto;
@@ -88,7 +93,10 @@
     animation:fadeIn .9s ease forwards;
     width:100%;
     max-width:100%;
+    margin-block:auto;
   }
+  /* grids always start at the top, never vertically centred */
+  .grow-screen .fade-in{ margin-block:0; }
   @keyframes fadeIn{
     from{ opacity:0; transform:translateY(18px); }
     to{ opacity:1; transform:translateY(0); }
@@ -348,6 +356,9 @@
     padding:clamp(12px,3vw,18px) clamp(16px,4vw,22px);
     margin-bottom:16px;
     box-shadow:var(--shadow-tiny);
+    position:sticky;
+    top:0;
+    z-index:30;
   }
   .title-box .title,
   .title-box .subtitle{
@@ -399,6 +410,22 @@
     border:none;
     box-shadow:none;
     transform:none !important;
+  }
+
+  /* when a photo is wrapped in .placeholder-box, the box is just the tile —
+     kill its padding/background so the image fills edge to edge */
+  .photo-collage .placeholder-box{
+    padding:0;
+    background:var(--blush-50);
+    overflow:hidden;
+  }
+  .photo-collage .placeholder-box img{
+    flex:none;
+    width:100%;
+    height:100%;
+    aspect-ratio:auto;
+    object-fit:cover;
+    display:block;
   }
 
   .top-right-btn{
@@ -506,6 +533,18 @@
   #screen8 h2{ font-size:clamp(1.2rem, 4vw, 1.55rem); color:var(--ink-soft); margin-bottom:30px; font-weight:500; }
 
   /* ---------- Responsive breakpoints ---------- */
+  /* On anything narrow enough that content is likely to overflow, let the
+     Next button sit in normal flow at the end of the content instead of
+     being pinned to a corner it can be scrolled away from. */
+  @media (max-width:768px){
+    .next-fixed,
+    .top-right-btn{
+      position:static;
+      margin-top:18px;
+      align-self:center;
+    }
+  }
+
   @media (max-width:640px){
     .wish-grid{ grid-template-columns:repeat(auto-fit, minmax(56px,1fr)); max-width:340px; }
     .photo-collage img,

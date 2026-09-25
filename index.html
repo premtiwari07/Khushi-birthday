@@ -276,17 +276,17 @@ function goTo(id){
   }
 
   // Screen 3: chase button logic
-  // function chaseAway(btn){
-  //   const wrap = btn.parentElement;
-  //   const wrapRect = wrap.getBoundingClientRect();
-  //   const maxX = wrapRect.width - btn.offsetWidth;
-  //   const maxY = wrapRect.height - btn.offsetHeight;
-  //   const x = Math.random() * maxX;
-  //   const y = Math.random() * maxY;
-  //   btn.style.left = x + 'px';
-  //   btn.style.top = y + 'px';
-  //   document.getElementById('retryBox').style.display = 'block';
-  // }
+  function chaseAway(btn){
+    const wrap = btn.parentElement;
+    const wrapRect = wrap.getBoundingClientRect();
+    const maxX = wrapRect.width - btn.offsetWidth;
+    const maxY = wrapRect.height - btn.offsetHeight;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+    document.getElementById('retryBox').style.display = 'block';
+  }
 
   function caughtIt(){
     goTo('screen5');

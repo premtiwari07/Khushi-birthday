@@ -16,9 +16,9 @@
     --shadow-tiny: 0 4px 12px rgba(196, 80, 130, 0.12);
   }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+*{ box-sizing:border-box; margin:0; padding:0; }
 
-  html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; }
 
   body{
     font-family:'Poppins', 'Segoe UI', sans-serif;
@@ -40,11 +40,11 @@
   }
   .heart-bg span{
     position:absolute;
-    bottom:-10%;
-    font-size:1.4rem;
+    bottom:-5%;
+    font-size:2rem;
     color:rgba(255,255,255,0.55);
     filter:drop-shadow(0 2px 3px rgba(196,80,130,0.15));
-    animation:floatUp 11s ease-in infinite;
+    animation:floatUp 5s ease-in infinite;
   }
   .heart-bg span:nth-child(1){ left:5%; animation-delay:0s; font-size:1.1rem;}
   .heart-bg span:nth-child(2){ left:18%; animation-delay:2.2s; font-size:1.7rem;}
@@ -346,7 +346,7 @@
     display:none;
   }
 
-  /* ---------- Screens 4 & 5: collage frame ---------- */
+  /* ---------- Screen 4: photo collage ---------- */
   .title-box{
     width:100%;
     max-width:min(96vw, 1400px);
@@ -390,8 +390,6 @@
     padding:10px;
     text-align:center;
   }
-
-  /* ---------- Screen 5: photo collage ---------- */
   .photo-collage{
     display:flex;
     flex-wrap:wrap;
@@ -434,7 +432,18 @@
     right:clamp(16px,5vw,40px);
   }
 
-  /* ---------- Screens 6 & 7: forms ---------- */
+  .photo-collage .placeholder-box {
+    position: relative;
+    transition: transform 0.4s ease;
+  }
+
+  .photo-collage .placeholder-box:hover {
+    transform: scale(2.2) !important;
+    z-index: 100;
+  }
+
+
+  /* ---------- Screens 5: forms ---------- */
   .form-card{
     max-width:480px;
     width:min(92vw, 480px);
@@ -522,7 +531,7 @@
   }
   .fav-grid .form-group{ margin-top:0; }
 
-  /* ---------- Screen 8 ---------- */
+  /* ---------- Screen 6 ---------- */
   #screen8 h1{
     font-family:'Quicksand', sans-serif;
     font-weight:700;
